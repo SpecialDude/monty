@@ -54,7 +54,36 @@ int iswhitespace(char c)
 	return (0);
 }
 
-
+/**
+ * cleanup - A completely useless function
+ * forced to be written inorder to pass stupid betty style
+ *
+ * @arg: Arg
+ * @k: k
+ * @args: Args
+ * @j: J
+ *
+ * Return: args
+ */
+char **cleanup(char *arg, int k, char **args, int j, int lastispace, int i)
+{
+	if (i == 0 || (i == 1 && lastisspace))
+	{
+		free(word);
+		free(words);
+		return NULL;
+	}
+	if (!lastisspace)
+	{
+		word[k] = '\0';
+		words[j] = word;
+		words[j + 1] = NULL;
+		instruction_args_count++;
+	}
+	else
+		free(word);
+	return (words);
+}
 
 /**
  * parse_line - Parse line
@@ -97,20 +126,6 @@ char **parse_line(char *line)
 		}
 		i++;
 	}
-	if (i == 0 || (i == 1 && lastisspace))
-	{
-		free(word);
-		free(words);
-		return NULL;
-	}
-	if (!lastisspace)
-	{
-		word[k] = '\0';
-		words[j] = word;
-		words[j + 1] = NULL;
-		instruction_args_count++;
-	}
-	else
-		free(word);
-	return (words);
+	
+	return (cleanup(word, k, words, j, lastispace, i));
 }
