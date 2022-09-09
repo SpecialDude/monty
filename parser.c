@@ -58,10 +58,12 @@ int iswhitespace(char c)
  * cleanup - A completely useless function
  * forced to be written inorder to pass stupid betty style
  *
- * @arg: Arg
+ * @word: Arg
  * @k: k
- * @args: Args
+ * @words: Args
  * @j: J
+ * @lastisspace: space
+ * @i: i
  *
  * Return: args
  */
@@ -71,7 +73,7 @@ char **cleanup(char *word, int k, char **words, int j, int lastisspace, int i)
 	{
 		free(word);
 		free(words);
-		return NULL;
+		return (NULL);
 	}
 	if (!lastisspace)
 	{
