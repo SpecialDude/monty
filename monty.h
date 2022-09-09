@@ -7,10 +7,9 @@
 #include <string.h>
 #include<fcntl.h>
 
-#define READ_BUFSIZE 1024
-#define LINE_READ_BUF 64
-#define WORD_BUF 32
-#define LINE_WORDS_BUF 10
+#define LINE_READ_BUF 1024
+#define WORD_BUF 64
+#define LINE_WORDS_BUF 32
 
 /**
  * struct stack_s - doubly linked list
@@ -70,5 +69,6 @@ void execute(char *line, int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

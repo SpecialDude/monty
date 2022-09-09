@@ -16,7 +16,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (instruction_args_count < 2 || !is_integer(instruction_args[1]))
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(instruction_args[1]);
@@ -32,7 +32,6 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	(*stack) = new_node;
 
-	line_number++;
 }
 
 /**
@@ -81,4 +80,25 @@ void pop(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 
 	free(node);
+}
+
+/**
+ * pint - Prints the first element in stack
+ *
+ * @stack: stack
+ *
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+
+	if ((*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
 }

@@ -4,6 +4,7 @@ instruction_t all_instructions[] = {
 	{"push", push},
 	{"pall", pall},
 	{"pop", pop},
+	{"pint", pint},
 	{NULL, NULL}
 };
 
@@ -41,6 +42,9 @@ void execute(char *line, int line_number)
 	void (*instruction)(stack_t **, unsigned int);
 
 	instruction_args = parse_line(line);
+	
+	if (instruction_args == NULL)
+		return;
 
 	opcode = instruction_args[0];
 
