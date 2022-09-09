@@ -65,7 +65,7 @@ int iswhitespace(char c)
  *
  * Return: args
  */
-char **cleanup(char *arg, int k, char **args, int j, int lastispace, int i)
+char **cleanup(char *word, int k, char **words, int j, int lastisspace, int i)
 {
 	if (i == 0 || (i == 1 && lastisspace))
 	{
@@ -126,6 +126,6 @@ char **parse_line(char *line)
 		}
 		i++;
 	}
-	
-	return (cleanup(word, k, words, j, lastispace, i));
+
+	return (cleanup(word, k, words, j, lastisspace, i));
 }
