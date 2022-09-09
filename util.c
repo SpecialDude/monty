@@ -33,3 +33,21 @@ void A_sh_print(char **str)
 
 }
 
+/**
+ * is_integer - Check if str is integer
+ *
+ * @str: str
+ *
+ * Return: int
+ */
+int is_integer(char *str)
+{
+	int i = 0;
+
+	for (; str[i]; i++)
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+	}
+	return (1);
+}

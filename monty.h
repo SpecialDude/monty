@@ -62,6 +62,7 @@ void *realloc_or_exit(void *ptr, size_t size, size_t new_size);
 
 void A_sh_toggle(short *value);
 void A_sh_print(char **str);
+int is_integer(char *str);
 
 char **parse_line(char *line);
 void execute(char *line, int line_number);

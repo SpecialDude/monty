@@ -14,6 +14,11 @@ void push(stack_t **stack, unsigned int line_number)
 
 	new_node = malloc_or_exit(sizeof(stack_t));
 
+	if (instruction_args_count < 2 || !is_integer(instruction_args[1]))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	n = atoi(instruction_args[1]);
 
 	new_node->n = n;
