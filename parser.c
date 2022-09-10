@@ -121,11 +121,16 @@ char **parse_line(char *line)
 				lastisspace = 1;
 			}
 		}
-		else if (!escape_quote(line[i], &insidequote, &insideSquote))
+		else
 		{
 			word[k++] = line[i];
 			lastisspace = 0;
 		}
+		/* else if (!escape_quote(line[i], &insidequote, &insideSquote))
+		{
+			word[k++] = line[i];
+			lastisspace = 0;
+		} */
 		i++;
 	}
 

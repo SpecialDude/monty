@@ -42,7 +42,7 @@ void execute(char *line, int line_number)
 	void (*instruction)(stack_t **, unsigned int);
 
 	instruction_args = parse_line(line);
-	
+
 	if (instruction_args == NULL)
 		return;
 
