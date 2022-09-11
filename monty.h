@@ -50,13 +50,9 @@ extern stack_t *stack;
 extern char **instruction_args;
 extern int instruction_args_count;
 
-
-void *_malloc_or_exit(size_t size);
-void *malloc_or_exit(size_t size);
-void mfree(void *ptr);
+void free_stack(stack_t *stack);
 void free_memory(char **ptr);
-size_t get_my_malloc_size(void *ptr);
-void *_realloc_or_exit(void *ptr, size_t new_size);
+void *malloc_or_exit(size_t size);
 void *realloc_or_exit(void *ptr, size_t size, size_t new_size);
 
 void A_sh_toggle(short *value);
@@ -65,7 +61,6 @@ int is_integer(char *str);
 
 char **parse_line(char *line);
 void execute(char *line, int line_number);
-void free_stack(stack_t *stack);
 int is_NII(char *opcode);
 
 void pall(stack_t **stack, unsigned int line_number);
@@ -75,5 +70,6 @@ void pint(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+void divop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

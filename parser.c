@@ -1,6 +1,5 @@
 #include "monty.h"
 
-
 /**
  * escape_quote - Check if to escape Quote characters
  *
