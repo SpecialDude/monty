@@ -99,3 +99,28 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * swap - Swaps the first two elements on a stack
+ *
+ * @stack: stack
+ * @line_number: instruction line number
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node_a, *node_b;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+	}
+
+	node_a = (*stack);
+	node_b = (*stack)->next;
+
+	node_b->prev = node_a->prev;
+	node_a->next = node_b->next;
+	node_b->next = node_a;
+
+	(*stack) = node_b;
+}
