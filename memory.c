@@ -73,6 +73,11 @@ void free_memory(char **ptr)
 	free(ptr);
 }
 
+/**
+ * free_stack - Release stack memory
+ *
+ * @stack: stack
+ */
 void free_stack(stack_t *stack)
 {
 	stack_t *next;
