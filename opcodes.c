@@ -37,6 +37,19 @@ int is_NII(char *opcode)
 }
 
 /**
+ * is_comment - Return True is a line is a comment
+ *
+ * @line: line
+ *
+ * Return: int
+ */
+int is_comment(char *line)
+{
+	return (line[0] == '#');
+}
+
+
+/**
  * get_instruction - Get the instruction object
  *
  * @opcode: opcode
@@ -76,7 +89,7 @@ void execute(char *line, int line_number)
 
 	opcode = instruction_args[0];
 
-	if (!is_NII(opcode))
+	if (!is_NII(opcode) && !is_comment(opcode))
 	{
 		instruction = get_instruction(opcode);
 

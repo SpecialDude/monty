@@ -73,6 +73,7 @@ char *readline(FILE *fd)
 	return (NULL);
 }
 
+
 /**
  * monty_interpreter - Read and interprete monty bytecodes
  *

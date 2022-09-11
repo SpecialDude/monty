@@ -62,6 +62,7 @@ int is_integer(char *str);
 char **parse_line(char *line);
 void execute(char *line, int line_number);
 int is_NII(char *opcode);
+int is_comment(char *line);
 
 void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
