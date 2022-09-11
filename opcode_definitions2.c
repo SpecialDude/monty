@@ -23,7 +23,6 @@ void add(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 
-
 /**
  * sub - Subtracts the top 2 element in a stack
  *
@@ -72,6 +71,29 @@ void divop(stack_t **stack, unsigned int line_number)
 	quotient = (*stack)->next->n / (*stack)->n;
 
 	(*stack)->next->n = quotient;
+
+	pop(stack, line_number);
+}
+
+/**
+ * mul - Multiplies the top 2 element in a stack
+ *
+ * @stack: Stack
+ * @line_number: Instruction Line number
+ */
+void mulop(stack_t **stack, unsigned int line_number)
+{
+	int product;
+
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	product = (*stack)->next->n - (*stack)->n;
+
+	(*stack)->next->n = product;
 
 	pop(stack, line_number);
 }

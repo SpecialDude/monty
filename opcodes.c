@@ -9,6 +9,7 @@ instruction_t all_instructions[] = {
 	{"add", add},
 	{"sub", sub},
 	{"div", divop},
+	{"mul", mulop},
 	{NULL, NULL}
 };
 
