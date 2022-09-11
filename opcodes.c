@@ -7,8 +7,24 @@ instruction_t all_instructions[] = {
 	{"pint", pint},
 	{"swap", swap},
 	{"add", add},
+	{"nop", nop},
 	{NULL, NULL}
 };
+
+char *useless_instructions[] = {"nop", NULL};
+
+int is_useless_instruction(char *opcode)
+{
+	int i;
+
+	for (i = 0; useless_instructions[i]; i++)
+	{
+		if (strcmp(opcode, useless_instructions[i]) == 0)
+			return (1);
+	}
+
+	return (0);
+}
 
 /**
  * get_instruction - Get the instruction object

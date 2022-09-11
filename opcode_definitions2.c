@@ -22,3 +22,17 @@ void add(stack_t **stack, unsigned int line_number)
 
     pop(stack, line_number);
 }
+
+/**
+ * nop - Does nothing
+ *
+ * @stack: Stack
+ * @line_number: Instruction Line number
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+    int n;
+
+    n = line_number + (*stack)->n;
+    n++;
+}
