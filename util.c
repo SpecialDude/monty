@@ -42,7 +42,10 @@ void A_sh_print(char **str)
  */
 int is_integer(char *str)
 {
-	int i = 0;
+	int i = 1;
+
+	if (!(str[0] >= '0' && str[0] <= '9') && !(str[0] == '-'))
+		return (0);
 
 	for (; str[i]; i++)
 	{
