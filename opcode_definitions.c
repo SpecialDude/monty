@@ -108,7 +108,6 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node_a, *node_b;
 	int data;
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
@@ -122,14 +121,4 @@ void swap(stack_t **stack, unsigned int line_number)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = data;
 
-	return;
-
-	node_a = (*stack);
-	node_b = (*stack)->next;
-
-	node_b->prev = node_a->prev;
-	node_a->next = node_b->next;
-	node_b->next = node_a;
-
-	(*stack) = node_b;
 }
