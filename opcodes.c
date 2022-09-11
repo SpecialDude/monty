@@ -7,13 +7,19 @@ instruction_t all_instructions[] = {
 	{"pint", pint},
 	{"swap", swap},
 	{"add", add},
-	{"nop", nop},
 	{NULL, NULL}
 };
 
 char *useless_instructions[] = {"nop", NULL};
 
-int is_useless_instruction(char *opcode)
+/**
+ * is_NII - Not Important Instruction
+ *
+ * @opcode: instruction
+ *
+ * Return: int
+ */
+int is_NII(char *opcode)
 {
 	int i;
 
@@ -66,15 +72,18 @@ void execute(char *line, int line_number)
 
 	opcode = instruction_args[0];
 
-	instruction = get_instruction(opcode);
-
-	if (instruction == NULL)
+	if (!is_NII(opcode))
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-		exit(EXIT_FAILURE);
-	}
+		instruction = get_instruction(opcode);
 
-	instruction(&stack, line_number);
+		if (instruction == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
+
+		instruction(&stack, line_number);
+	}
 
 	instruction_args_count = 0;
 	free_memory(instruction_args);
