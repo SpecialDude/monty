@@ -58,7 +58,7 @@ void divop(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -91,7 +91,7 @@ void mulop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	product = (*stack)->next->n - (*stack)->n;
+	product = (*stack)->next->n * (*stack)->n;
 
 	(*stack)->next->n = product;
 

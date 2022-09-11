@@ -1,6 +1,10 @@
+push 12
+push 27
 push 1
-push 2
-push 10
-push 3
-sub
+push 0
+pop
+pop
+pop
+pop
+div
 pall
