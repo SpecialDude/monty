@@ -7,6 +7,7 @@ instruction_t all_instructions[] = {
 	{"pint", pint},
 	{"swap", swap},
 	{"add", add},
+	{"sub", sub},
 	{NULL, NULL}
 };
 
