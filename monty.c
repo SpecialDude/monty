@@ -98,6 +98,7 @@ void monty_interpreter(char *filename)
 	}
 
 	fclose(fd);
+	free_stack(stack);
 }
 
 /**

@@ -72,3 +72,15 @@ void free_memory(char **ptr)
 
 	free(ptr);
 }
+
+void free_stack(stack_t *stack)
+{
+	stack_t *next;
+
+	while (stack)
+	{
+		next = stack->next;
+		free(stack);
+		stack = next;
+	}
+}
