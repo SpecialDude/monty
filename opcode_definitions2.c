@@ -48,7 +48,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - Divides the top 2 element in a stack
+ * divop - Divides the top 2 element in a stack
  *
  * @stack: Stack
  * @line_number: Instruction Line number
