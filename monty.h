@@ -75,5 +75,6 @@ void divop(stack_t **stack, unsigned int line_number);
 void mulop(stack_t **stack, unsigned int line_number);
 void modop(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
