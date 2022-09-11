@@ -8,8 +8,8 @@
 #include<fcntl.h>
 
 #define LINE_READ_BUF 1024
-#define WORD_BUF 64
-#define LINE_WORDS_BUF 32
+#define WORD_BUF 512
+#define LINE_WORDS_BUF 128
 
 /**
  * struct stack_s - doubly linked list

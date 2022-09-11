@@ -88,12 +88,11 @@ void monty_interpreter(char *filename)
 
 	fd = open_file(filename);
 
-	while ((line = readline(fd)))
+	while ((line = readline(fd)) != NULL)
 	{
 		line_number++;
 
 		execute(line, line_number);
-
 
 		free(line);
 	}

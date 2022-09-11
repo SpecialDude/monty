@@ -17,8 +17,8 @@ void *malloc_or_exit(size_t size)
 
 	if (newmem == NULL)
 	{
-		msg = "Error: malloc failed\n";
-		write(STDERR_FILENO, msg, 21);
+		msg = "Error: malloc failed";
+		fprintf(stderr, "%s\n", msg);
 		exit(EXIT_FAILURE);
 	}
 

@@ -69,7 +69,7 @@ int iswhitespace(char c)
  */
 char **cleanup(char *word, int k, char **words, int j, int lastisspace, int i)
 {
-	if (i == 0 || (i == 1 && lastisspace))
+	if (i == 0 || (j == 0 && lastisspace))
 	{
 		free(word);
 		free(words);
@@ -98,7 +98,7 @@ char **parse_line(char *line)
 {
 	int wordbuf_size = WORD_BUF, linewords_size = LINE_WORDS_BUF;
 	int i = 0, j = 0, k = 0;
-	short lastisspace, insidequote = 0, insideSquote = 0;
+	short lastisspace;
 	char *word, **words;
 
 	if (!line || !line[0])
@@ -108,7 +108,7 @@ char **parse_line(char *line)
 	word = malloc_or_exit(sizeof(char) * wordbuf_size);
 	while (line[i])
 	{
-		if (iswhitespace(line[i]) && !insidequote && !insideSquote)
+		if (iswhitespace(line[i]))
 		{
 			if (!lastisspace)
 			{
@@ -126,11 +126,6 @@ char **parse_line(char *line)
 			word[k++] = line[i];
 			lastisspace = 0;
 		}
-		/* else if (!escape_quote(line[i], &insidequote, &insideSquote))
-		{
-			word[k++] = line[i];
-			lastisspace = 0;
-		} */
 		i++;
 	}
 
