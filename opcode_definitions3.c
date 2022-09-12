@@ -21,7 +21,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	putchar((*stack)->n);
-    putchar('\n');
+	putchar('\n');
 }
 
 /**
@@ -32,13 +32,73 @@ void pchar(stack_t **stack, unsigned int line_number)
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-    stack_t *node = (*stack);
-    line_number += 1;
+	stack_t *node = (*stack);
 
-    while (node && node->n != 0 && !(node->n > 127 || node->n < 0))
-    {
-        putchar(node->n);
-        node = node->next;
-    }
-    putchar('\n');
+	line_number += 1;
+
+	while (node && node->n != 0 && !(node->n > 127 || node->n < 0))
+	{
+		putchar(node->n);
+		node = node->next;
+	}
+	putchar('\n');
+}
+
+/**
+ * rotl - Rotates the stack to the top.
+ *
+ * @stack: Stack
+ * @line_number: Instruction codes line number
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node, *top, *new_top;
+
+	if (!((*stack) && (*stack)->next))
+		return;
+
+	node = (*stack);
+	top = (*stack);
+
+	new_top = (*stack)->next;
+
+	while (node && node->next)
+		node = node->next;
+
+	top->prev = node;
+	node->next = top;
+	top->next = NULL;
+	new_top->prev = NULL;
+	(*stack) = new_top;
+
+	line_number++;
+}
+
+/**
+ * rotr - Rotates the stack to the bottom.
+ *
+ * @stack: Stack
+ * @line_number: Instruction codes line number
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node;
+
+	if (!((*stack) && (*stack)->next))
+		return;
+
+	node = (*stack);
+
+	while (node && node->next)
+		node = node->next;
+
+	node->prev->next = NULL;
+
+	node->prev = (*stack)->prev;
+	node->next = (*stack);
+
+	(*stack)->prev = node;
+	(*stack) = node;
+
+	line_number++;
 }
